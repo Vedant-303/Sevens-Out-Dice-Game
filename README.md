@@ -1,1 +1,1 @@
-# Seven-s-Out-Dice-Game
+# Sevens-Out-Dice-Game
