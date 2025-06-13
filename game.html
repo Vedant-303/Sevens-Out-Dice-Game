@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7's Out Dice Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="logo">7's Out</div>
+
+      <div class="cardsContainer">
+        <div class="cardWrapper card1">
+          <div class="playerCard player1">
+            <p class="playerName">Vedant</p>
+            <div class="scoreCard">
+              <p class="player1Score score">00</p>
+              <p>Score</p>
+            </div>
+          </div>
+
+          <button class="playerButton roll" onclick="rollDice()">Roll</button>
+        </div>
+
+        <div class="middle">
+          <div class="diceContainer">
+            <div class="dice first" id="dice1">
+              <div class="one side">
+                <div class="dot dot1"></div>
+              </div>
+              <div class="two side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+              </div>
+              <div class="three side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+              </div>
+              <div class="four side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+                <div class="dot dot4"></div>
+              </div>
+              <div class="five side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+                <div class="dot dot4"></div>
+                <div class="dot dot5"></div>
+              </div>
+              <div class="six side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+                <div class="dot dot4"></div>
+                <div class="dot dot5"></div>
+                <div class="dot dot6"></div>
+              </div>
+            </div>
+
+            <div class="dice second" id="dice2">
+              <div class="one side">
+                <div class="dot dot1"></div>
+              </div>
+              <div class="two side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+              </div>
+              <div class="three side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+              </div>
+              <div class="four side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+                <div class="dot dot4"></div>
+              </div>
+              <div class="five side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+                <div class="dot dot4"></div>
+                <div class="dot dot5"></div>
+              </div>
+              <div class="six side">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+                <div class="dot dot4"></div>
+                <div class="dot dot5"></div>
+                <div class="dot dot6"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tablet">
+            <div class="target">
+              <p class="targetNumber">00</p>
+              <p>Target</p>
+            </div>
+            <div class="bottomButtons">
+              <button class="secondary" onclick="showInfo()">Rules</button>
+              <button class="secondary" onclick="resetGame()">Restart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardWrapper card2">
+          <div class="playerCard player2">
+            <p class="playerName">Revesh</p>
+            <div class="scoreCard">
+              <p class="player2Score score">00</p>
+              <p>Score</p>
+            </div>
+          </div>
+          <button class="player2Button roll" onclick="rollDice()">Roll</button>
+        </div>
+      </div>
+
+      <div class="rulesPopup">
+        <p>Rules</p>
+        <ul class="rulesList"></ul>
+      </div>
+
+      <div class="winner">
+        <p>🎉🎉🎉</p>
+        <p><span class="winnerName"></span> Wins !!!<br />🏅</p>
+        <div class="bottomButtons">
+          <button class="gameSecondary" onclick="goHome()">Home</button>
+          <button class="gameSecondary" onclick="resetGame()">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="animations.js"></script>
+    <script src="gameLogic.js"></script>
+  </body>
+</html>
