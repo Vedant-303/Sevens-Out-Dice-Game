@@ -2,6 +2,8 @@
 
 A fun and interactive 2-player dice game built with HTML, CSS, and JavaScript. Compete against a friend — or the computer — to reach the target score first!
 
+[Live Link](https://sevens-out-dice-game.vercel.app)
+
 ![Screenshot](./Sounds/SevensOutDiceGame.gif)
 
 ---
