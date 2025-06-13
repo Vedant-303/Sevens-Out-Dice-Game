@@ -1,380 +1,611 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Merienda", cursive;
 }
 
 body {
-    height: 100vh;
-    background: linear-gradient(304deg, #BA5FE2 -115.81%, #301C64 100%);
-    overflow: hidden;
-    color: #FFFEFE;
-    font-family: Akaya Telivigala;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-.winScreen {
-    visibility: hidden;
-    font-size: 50px;
-    height: 80vh;
-    width: 60vw;
-    position: absolute;
-    background: rgba(217, 217, 217, 0.20);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    border-radius: 12px;
-    backdrop-filter: blur(40px);
-    padding: 20px 30px;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.wrapper {
+  height: calc(100vh - 30px);
+  width: calc(100vw - 30px);
+  margin: 15px;
+  border-radius: 20px;
+  background-image: linear-gradient(#5f82cd, #bac9e9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  overflow: hidden;
 }
 
-.winScreen > h2 {
-    background: linear-gradient(304deg, #BA5FE2 -115.81%, #301C64 100%);
-    color: transparent;
-    background-clip: text;
-    
+.heading {
+  font-size: 260px;
+  font-weight: 600;
 }
 
-.winButtons {
-    width: 60%;
-    display: flex;
-    justify-content: space-around;
-}  
-
-.winButtons > a, .winButtons > i {
-    background: linear-gradient(304deg, #BA5FE2 -115.81%, #301C64 100%); 
-    color: transparent;
-    background-clip: text;
+.dice {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg) rotateX(45deg) rotateZ(30deg);
+  cursor: pointer;
 }
 
-.winButtons > a:hover, .winButtons > i:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.7));
-    transform: translate3D(-2px, -2px, 0);
-    cursor: pointer;
+.side {
+  height: 100px;
+  width: 100px;
+  background-color: #f6f3f0;
+  position: absolute;
+  border-radius: 10px;
+  border: 4px solid #d9d9d9;
 }
 
-.top {
-    height: 7vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 80px;
+.one {
+  transform: translateZ(49.5px);
 }
 
-.top > a {
-    font-size: 36px;
-    font-weight: 400;
-    cursor: pointer;
-    text-decoration: none;
-    color: #FFF;
+.two {
+  transform: translateX(-49.5px) rotateY(-90deg);
 }
 
-.info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 16px;
-    background: rgba(217, 217, 217, 0.20);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    cursor: pointer;
+.three {
+  transform: translateY(49.5px) rotateX(90deg);
 }
 
-.info:hover {
-    border: 2px solid white;
-    transform: translate3D(-2px, -2px, 0);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset, 4px 4px 10px rgba(0, 0, 0, 0.9);
+.four {
+  transform: translateY(-49.5px) rotateX(90deg);
 }
 
-.info > span {
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 36px;
-    font-weight: 400;
+.five {
+  transform: translateX(49.5px) rotateY(90deg);
 }
 
-.info:active {
-    transform: translate3D(0, 0, 0);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
+.six {
+  transform: translateZ(-49.5px);
 }
 
-.howToPlay {
-    background: rgba(217, 217, 217, 0.20);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    width: 30vw;
-    font-size: 20px;
-    border-radius: 12px;
-    position: absolute;
-    right: 80px;
-    backdrop-filter: blur(40px);
-    padding: 20px 30px;
-    visibility: hidden;
-    z-index: 1;
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
 }
 
-.repalce {
-    height: 86vh;
+.one .dot1,
+.three .dot1,
+.five .dot1 {
+  top: 36px;
+  left: 36px;
 }
 
-.main {
-    margin-top: 20px;
+.six .dot2 {
+  top: 35px;
+  left: 60px;
 }
 
-.title {
-    display: flex;
-    justify-content: center;
+.two .dot1,
+.three .dot3,
+.four .dot3,
+.five .dot3,
+.six .dot3 {
+  top: 60px;
+  left: 60px;
 }
 
-.title > img {
-    width: 311px;
-    filter: drop-shadow(8px 12px 4px rgba(0, 0, 0, 0.25));
+.six .dot4 {
+  top: 35px;
+  left: 12px;
 }
 
-.title > h1 {
-    font-size: 170px;
-    font-weight: 400;
-    text-shadow: 8px 12px 4px rgba(0, 0, 0, 0.25);
-    margin-left: -30px;
+.two .dot2,
+.three .dot2,
+.four .dot1,
+.five .dot5,
+.six .dot5 {
+  top: 12px;
+  left: 12px;
 }
 
-.form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 50px;
+.four .dot2,
+.five .dot2,
+.six .dot1 {
+  top: 12px;
+  left: 60px;
 }
 
-label {
-    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Akaya Telivigala;
-    font-size: 30px;
-    font-weight: 400;
+.four .dot4,
+.five .dot4,
+.six .dot6 {
+  top: 60px;
+  left: 12px;
 }
 
-input {
-    font-family: Akaya Telivigala;
-    font-size: 20px;
-    height: 30px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    border: none;
-    background: rgba(217, 217, 217, 0.20);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    color: white;
+.diceContainer {
+  display: flex;
+  gap: 180px;
+  align-items: center;
 }
 
-#smallInput {
-    width: 120px;
-    margin-left: 25px;
-    margin-bottom: 0;
-}
-
-::placeholder {
-    color: rgba(255, 255, 255, 0.575);
-    font-family: Akaya Telivigala;
-    font-size: 16px;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.text {
+  width: 40%;
+  text-align: center;
+  font-size: 20px;
+  margin: 150px 0 0 0;
+  font-family: "Roboto", sans-serif;
 }
 
 button {
-    border: 2px solid transparent;
-    padding: 7px 50px;
-    border-radius: 12px;
-    color: #FFF;
-    background: rgba(217, 217, 217, 0.20);
-    font-family: Akaya Telivigala;
-    font-size: 30px;
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    cursor: pointer;
-    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #f6f3f0;
+  color: #5f82cd;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  margin: 10px 0 40px 0;
+  box-shadow: #5f82cd 0px 4px 4px;
+  cursor: pointer;
 }
 
-#btn {
-    border: 2px solid transparent;
-    padding: 7px 50px;
-    border-radius: 12px;
-    color: #FFF;
-    background: rgba(217, 217, 217, 0.20);
-    font-family: Akaya Telivigala;
-    font-size: 30px;
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    cursor: pointer;
-    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-button:hover, #btn:hover {
-    border: 2px solid white;
-    transform: translate3D(-2px, -2px, 0);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset, 4px 4px 10px rgba(0, 0, 0, 0.9);
-}
-
-button:active, #btn:active {
-    transform: translate3D(0, 0, 0);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-}
-
-#btn {
-    height: 60px;
-    margin: 20px 25%;
-}
-
-.target {
-    font-size: 45px;
-    margin: 10px;
-}
-
-progress {
-    border-radius: 0px 24px 0px 24px;
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    border: 1px solid rgba(255, 255, 255, 0.171);
-}
-
-progress::-webkit-progress-bar {
-    border-radius: 0px 24px 0px 24px;
-    background-color: rgba(217, 217, 217, 0.20);
-}
-
-progress::-webkit-progress-value {
-    border-radius: 0px 24px 0px 24px;
-    background-color: #301C64;
-}
-
-.progress {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-}
-
-.flip {
-    transform: rotateY(180deg);
-}
-
-progress {
-    width: 25vw;
-    height: 20px;
-}
-
-.setting {
-    background: rgba(217, 217, 217, 0.20);
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.25) inset;
-    font-size: 25px;
-    border-radius: 12px;
-    position: absolute;
-    left: 80px;
-    bottom: 70px;
-    backdrop-filter: blur(40px);
-    padding: 20px 30px;
-    visibility: hidden;
-}
-
-input[type="range"] {
-    box-shadow: none;
-}
-
-.bottom {
-    height: 7vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 80px;
-}
-
-.info > i {
-    font-size: 20px;
-}
-
-.socials {
-    margin-right: 10px;
-}
-
-.socials > a {
-    color: #FFF;
-    font-size: 32px;
-    padding-right: 10px;
-    cursor: pointer;
-}
-
-.socials > a :hover {
-    transform: scale(1.2);
-    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.7));
-    transform: translate3D(-2px, -2px, 0);
-}
-
-.Container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    height: 50vh;
-}
-
-.dice > img {
-    height: 150px;
-    width: 150px;
-}
-
-@keyframes shake {
-    50% {
-        transform: rotateZ(180deg);
-    }
-    100% {
-        transform: rotateZ(0);
-    }
+button:hover {
+  animation: wobble 1s infinite;
 }
 
 button:disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
+  animation: none;
 }
 
-.buttons {
-    margin-top: 34px;
-    display: flex;
-    justify-content: space-around;
+@keyframes wobble {
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  75% {
+    transform: rotateZ(10deg);
+  }
+}
+
+.popupWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: #333;
+}
+
+.popup {
+  background: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup h2 {
+  margin-bottom: 20px;
+}
+
+.popup input[type="text"],
+.popup input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.section label {
+  display: block;
+  margin: 5px 0px;
+  color: #333;
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.difficultySection,
+.section {
+  text-align: center;
+}
+
+.difficultySection label {
+  margin: 0px 10px;
+}
+
+.popup button {
+  background-color: #5f82cd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5f82cd;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 160px;
+  }
+
+  .text {
+    width: 50%;
+    font-size: 18px;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    margin-top: 40px;
+    font-size: 120px;
+  }
+
+  .diceContainer {
+    gap: 150px;
+    margin-top: 20px;
+  }
+
+  .text {
+    width: 70%;
+    font-size: 16px;
+    margin-top: 80px;
+  }
+
+  .dice {
+    transform: rotateY(0deg) rotateX(45deg) rotateZ(30deg) scale(0.8);
+  }
+
+  button {
+    padding: 10px 24px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 60px;
+  }
+
+  .diceContainer {
+    gap: 40px;
+  }
+
+  .dice {
+    transform: rotateY(0deg) rotateX(45deg) rotateZ(30deg) scale(0.6);
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 6px 16px;
+    font-size: 16px;
+  }
+}
+
+/* game.html */
+
+.logo {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 5px 0 0 0;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100vw - 30px);
+  padding: 10px 80px;
+}
+
+.playerCard {
+  height: 618px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.233);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.playerName {
+  font-size: 45px;
+}
+
+.scoreCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.score,
+.targetNumber {
+  font-size: 130px;
+}
+
+.scoreCard :last-child,
+.target :last-child {
+  margin-top: -30px;
+  font-size: 24px;
+}
+
+.playerCard :last-child {
+  font-size: 22px;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.target {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160px;
+}
+
+.bottomButtons {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.secondary {
+  padding: 7px 21px;
+  font-size: 16px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.rulesPopup {
+  height: 50vh;
+  width: 30vw;
+  background-color: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #5f82cd;
+  text-align: center;
+  visibility: hidden;
+}
+
+.rulesPopup p:first-child {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.rulesList {
+  margin: 20px;
+}
+
+.rulesList li {
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  margin-bottom: 6px;
+}
+
+.winner {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  visibility: hidden;
+  text-align: center;
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.winner.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.winner p {
+  font-size: 100px;
+}
+
+.gameSecondary {
+  background-color: #5f82cd;
+  color: #f6f3f0;
+  box-shadow: #bac9e9 0px 4px 4px;
+}
+
+/* Make score & player name text adjust on smaller screens */
+@media (max-width: 1200px) {
+  .cardsContainer {
+    padding: 10px 20px;
+  }
+
+  .scoreCard {
+    margin-bottom: 0;
+  }
+
+  .score,
+  .targetNumber {
+    font-size: 100px;
+  }
+
+  .playerName {
+    font-size: 36px;
+  }
+
+  .diceContainer {
+    gap: 140px;
+    margin-left: -30px;
+  }
+
+  .playerCard {
+    width: 300px;
+    height: 550px;
+  }
+
+  .winner p {
+    font-size: 70px;
+  }
+}
+
+/* Stack cards vertically and adjust layout for tablets */
+@media (max-width: 992px) {
+  .cardsContainer {
+    flex-direction: column;
     align-items: center;
-}
+    padding: 20px;
+  }
 
-.board1 {
-    height: 40vh;
+  .middle {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .target {
+    margin-top: 120px;
+    margin-bottom: -30px;
+  }
+
+  .playerCard {
     width: 40vw;
-    clip-path: polygon(50% 0%, 100% 0%, 100% 38%, 100% 100%, 50% 100%, 31.9% 50.3%);
-    background: rgba(217, 217, 217, 0.035);
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .middle {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-column-end: 3;
+  }
+
+  .score,
+  .targetNumber {
+    font-size: 80px;
+    margin-bottom: 10px;
+  }
+
+  .diceContainer {
+    margin-top: 20px;
+  }
+
+  .middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .playerName {
+    font-size: 36px;
+  }
+
+  .winner {
+    width: 90vw;
+    height: 80vh;
+  }
+
+  .winner p {
+    font-size: 60px;
+    text-align: center;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .score,
+  .targetNumber {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+
+  .playerName {
+    font-size: 30px;
+  }
+
+  .secondary,
+  .gameSecondary {
+    padding: 5px 15px;
+    font-size: 14px;
+  }
+
+  .winner {
+    width: 85vw;
+    height: 80vh;
+    padding: 10px;
+  }
+
+  .winner p {
     font-size: 40px;
-    position: relative;
-}
+  }
 
-.board2 {
-    height: 40vh;
-    width: 40vw;
-    clip-path: polygon(50% 0%, 0% 0%, 0% 38%, 0% 100%, 50% 100%, 68.1% 50.3%);
-    background: rgba(217, 217, 217, 0.035);
-    font-size: 40px;
-    position: relative;
-}
-
-.content1 {
-    position: absolute;
-    top: 22%;
-    right: 18%;
-}
-
-.content2 {
-    position: absolute;
-    top: 22%;
-    left: 18%;
-}
-
-a {
-    text-decoration: none;
+  .rulesPopup {
+    width: 90vw;
+    height: 60vh;
+  }
 }
