@@ -53,7 +53,6 @@ A fun and interactive 2-player dice game built with HTML, CSS, and JavaScript. C
 
 ## 👨‍💻 Author
 Made with ❤️ by [Vedant-303](https://github.com/Vedant-303)
-Cricket buff | Data Science Enthusiast | Pattern Seeker 🧠
 
 ### 🔗 Connect with Me
 [Vedant Jeughale](https://www.linkedin.com/in/vedantjeughale/)
